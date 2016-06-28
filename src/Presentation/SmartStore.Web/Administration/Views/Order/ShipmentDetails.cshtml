@@ -25,6 +25,15 @@
 	
     @Html.ValidationSummary(false)
 
+	@Html.SmartStore().TabStrip().Name("shipment-details").Items(x =>
+	{
+		x.Add().Text(T("Admin.Common.General").Text).Content(TabGeneral()).Selected(true);
+
+		EngineContext.Current.Resolve<IEventPublisher>().Publish(new TabStripCreated(x, "shipment-details", this.Html, this.Model));
+	})
+
+	@helper TabGeneral()
+	{
     <table class="adminContent">
         <tr>
             <td class="adminTitle">
@@ -129,5 +138,6 @@
 			</td>
         </tr>
     </table>
+	}
 }
 @Html.DeleteConfirmation("DeleteShipment", "shipment-delete")

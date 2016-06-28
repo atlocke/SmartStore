@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using SmartStore.Admin.Models.Common;
 using SmartStore.Core.Domain.Common;
 using SmartStore.Web.Framework;
 using SmartStore.Web.Framework.Modelling;
@@ -7,8 +6,8 @@ using SmartStore.Web.Framework.Modelling;
 namespace SmartStore.Admin.Models.Orders
 {
 
-    public class ShipmentModel : EntityModelBase
-    {
+	public class ShipmentModel : TabbableModel
+	{
         public ShipmentModel()
         {
             this.Items = new List<ShipmentItemModel>();
